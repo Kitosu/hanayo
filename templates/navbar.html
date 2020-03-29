@@ -6,7 +6,7 @@
 <div class="ui secondary fixed-height stackable white background main menu no margin bottom{{ if .DisableHH }} dropped{{ end }}" id="navbar">
 	<div class="ui container">
 		<div class="item">
-			<b><a href="/" title="{{ .T "Home page" }}"><img class="ripple logo" src="/static/logos/text-{{ if $ds }}white{{ else }}black{{ end }}.png" alt="Ainu"></a></b>
+			<b><a href="/" title="{{ .T "Home page" }}"><img class="ripple logo" src="/static/logos/text-{{ if $ds }}white{{ else }}black{{ end }}.png" alt="Kitosu"></a></b>
 		</div>
 		{{ if $isRAP }}
 			{{/*
@@ -20,9 +20,7 @@
 			<div class="ui dropdown item">
 				<span>{{ .T "Community" }}</span>
                 <div class="menu">
-                    {{ navbarItem .Path (.T "Multiplayer listing") "https://multi.ainu.pw" }}
-                    {{/* {{ navbarItem .Path (.T "Tournaments") "https://tourn.ainu.pw" }} */}}
-                    <div class="divider"></div>
+                       <div class="divider"></div>
                     {{ navbarItem .Path (.T "Discord Server") .Conf.DiscordServer }}
                 </div>
             </div>
@@ -32,7 +30,8 @@
 					{{ navbarItem .Path (.T "About") "/about" }}
 					{{ navbarItem .Path (.T "Rules") "/doc/rules" }}
 					{{ navbarItem .Path (.T "Documentation") "/doc" }}
-					<a class="item" href="{{ .T "/static/serverswitcher_en.exe" }}">{{ .T "Server switcher" }}</a>
+                                        {{ navbarItem .Path (.T "Status") "https://kitsustat.cf" }}
+					<a class="item" href="{{ .T "/static/Kitosu_Switcher.exe" }}">{{ .T "Server switcher" }}</a>
 				</div>
 			</div>
 			{{ if .Context.User.Username }}
@@ -58,8 +57,7 @@
 				</div>
 			</div>
 			{{ end }}
-			{{ navbarItem .Path (.T "Donate" | printf "<i class=\"red heart icon\"></i>%s") "/donate" }}
-			{{ if $isAdmin }}{{ navbarItem .Path (.T "AAP" | printf "<b>%s</b>") "https://old.ainu.pw/index.php?p=100" }}{{ end }}
+			{{ if $isAdmin }}{{ navbarItem .Path (.T "KAP" | printf "<b>%s</b>") "https://old.kitosu.cf/index.php?p=100" }}{{ end }}
 			{{ end }}
 		<div class="firetrucking-right-menu">
 			<div class="item">

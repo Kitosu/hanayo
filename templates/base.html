@@ -1,4 +1,4 @@
-	{{ define "base" }}
+{{ define "base" }}
 {{ $cf := .ClientFlags }}
 {{ $ds := band $cf 1 }}
 {{ $   := . }}
@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="/static/maintenance.css?{{ unixNano }}">
 		<script src="https://kit.fontawesome.com/fdf0b80f23.js" crossorigin="anonymous"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Maintenance - Ainu</title>
+		<title>Maintenance - Kitosu</title>
 	</head>
 		{{ else }}
 		<noscript>
@@ -31,7 +31,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<title>{{ if .TitleBar }}{{ .T .TitleBar }}{{ end }} {{ .T "- Ainu" }}</title>
+		<title>{{ if .TitleBar }}{{ .T .TitleBar }}{{ end }} {{ .T "- Kitosu" }}</title>
 
 		<link rel="stylesheet" type="text/css" href="/static/{{ if $ds }}dark/{{ end }}semantic.min.css?{{ unixNano }}">
 		<link rel="stylesheet" type="text/css" href="/static/ripple.css?{{ unixNano }}">
@@ -79,7 +79,7 @@
 				<noscript>Research has proven this website works 10000% better if you have JavaScript enabled.</noscript>
 				{{ if and .Context.User.Username (not (has .Context.User.Privileges 1)) }}
 					<div class="ui warning message">
-						{{ $.T "Your account is currently in restricted mode. You will not be able to do certain actions, and your profile can only be seen by you and by Ainu!'s staff. If you believe we have mistaken putting you in restricted mode, or a month has passed since you first saw this, then you can send an appeal at <a href='https://discord.gg/CEjWW4K'>our Discord</a>." | html }}
+						{{ $.T "Your account is currently in restricted mode. You will not be able to do certain actions, and your profile can only be seen by you and by Kitosu's staff. If you believe we have mistaken putting you in restricted mode, or a month has passed since you first saw this, then you can send an appeal at <a href='https://discord.gg/CEjWW4K'>our Discord</a>." | html }}
 					</div>
 				{{ end }}
 				{{ if .Messages }}
@@ -98,7 +98,7 @@
 				{{ end }}
 				{{ with $settings.game_maintenance.Int }}
 					<div class="ui warning message">
-						{{ $.T "Ainu!'s score submission is currently in maintenance mode. You will not be allowed to submit scores for the time being." }}
+						{{ $.T "Kitosu's score submission is currently in maintenance mode. You will not be allowed to submit scores for the time being." }}
 					</div>
 				{{ end }}
 				</div>
@@ -110,7 +110,7 @@
 			
 			<font style='color:black'>
 			{{ if $ds }}<font style='color:white' >{{ end }}
-			{{ .T "&copy; 2018-%d Ripple, osu!Ainu, Made with love by Aoba ❤ using Hanayo %s" (curryear) (version) | html }}  |
+			{{ .T "&copy; 2018-%d Ripple, Kitosu, Made with ❤ by KitsuneYokai using Hanayo!Ainu %s" (curryear) (version) | html }}  |
 			<div class="ui scrolling dropdown" style="margin-left: 5px;" id="language-selector">
 				{{ $lang := .Context.Language }}
 				{{ with $lang }}
@@ -126,7 +126,7 @@
 					{{ end }}
 				</div>
 				</div>
-			<br>Ainu is not affiliated with ppy Pty Ltd in any way.<br>"osu!" is a trademark of ppy Pty Ltd.
+			<br>Kitosu is not affiliated with ppy Pty Ltd in any way.<br>"osu!" is a trademark of ppy Pty Ltd.
 			</font>
 		</div>
 		</center>
@@ -144,6 +144,7 @@
 		<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2"></script>
 		<script src="/static/dist.min.js?{{ unixNano }}"></script>
 		<script src="/static/timeago-locale/jquery.timeago.{{ with $lang }}{{ . }}{{end}}.js"></script>
+		<script src="/static/live2dw/lib/L2Dwidget.min.js?{{ unixNano }}"></script><script>L2Dwidget.init({"pluginRootPath":"static/live2dw/","pluginJsPath":"/static/lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/static/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 		{{ if .Scripts }}
 			{{ range .Scripts }}
 				<script src="{{ . }}?{{ unixNano }}"></script>
